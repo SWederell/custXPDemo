@@ -8,7 +8,8 @@ import {
 import { createStackNavigator } from "@react-navigation/stack";
 
 import NotFoundScreen from "../screens/NotFoundScreen";
-import BottomTabNavigator from "./BottomTabNavigator";
+import LoginScreen from "../screens/LoginScreen";
+import Vehicle from "../screens/Vehicle";
 import LinkingConfiguration from "./LinkingConfiguration";
 
 export default function Navigation({ colorScheme }) {
@@ -28,8 +29,12 @@ const Stack = createStackNavigator();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
+    <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName="Root"
+    >
+      <Stack.Screen name="Root" component={LoginScreen} />
+      <Stack.Screen name="Vehicle" component={Vehicle} />
       <Stack.Screen
         name="NotFound"
         component={NotFoundScreen}
